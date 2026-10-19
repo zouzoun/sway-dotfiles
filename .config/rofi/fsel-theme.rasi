@@ -1,0 +1,72 @@
+* {
+    font: "Pragmasevka Nerd Font 11";
+    
+    /* Couleurs inspirées de votre config */
+    bg0:     #0f0f0f;
+    bg1:     #1e1f1e;
+    bg2:     #272a28;
+    fg0:     #f4decd;
+    fg1:     #888e7b;
+    orange:  #ef934d;
+
+    background-color: transparent;
+    text-color:       @fg0;
+
+    margin:  0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: @bg0;
+    border:           1px;
+    border-color:     @orange;
+    width:            700px;
+    height:           450px;
+    padding:          12px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing:  10px;
+}
+
+inputbar {
+    background-color: @bg1;
+    border:           1px;
+    border-color:     @bg2;
+    padding:          8px 12px;
+    children:         [ entry ];
+}
+
+entry {
+    placeholder:       "Rechercher un émoji...";
+    placeholder-color: @fg1;
+    text-color:        @fg0;
+}
+
+listview {
+    lines:        10;
+    columns:      1;
+    fixed-height: true;
+    spacing:      4px;
+    scrollbar:    false;
+}
+
+element {
+    padding: 6px 10px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       @fg0;
+}
+
+element selected.normal {
+    background-color: @bg2;
+    text-color:       @orange;
+}
+
+element-text {
+    text-color: inherit;
+}

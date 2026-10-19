@@ -1,0 +1,87 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 21,
+    "spacing": 0,
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "group/resources",
+        "pulseaudio",
+        "clock"
+    ],
+    "sway/workspaces": {
+        "format": "{name}",
+        "all-outputs": false,
+        "disable-scroll": false,
+        "alphabetical_sort": false
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 3,
+        "show-passive-items": true
+    },
+    "group/resources": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "resource-child",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/resource-icon",
+            "cpu",
+            "memory",
+            "disk",
+            "custom/battery"
+        ]
+    },
+    "custom/resource-icon": {
+        "format": "󰘚",
+        "tooltip": true,
+        "tooltip-format": "Ressources système"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2
+    },
+    "memory": {
+        "format": "󰍛 {used:0.1f}Go/{total:0.1f}Go",
+        "interval": 5
+    },
+    "disk": {
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "interval": 30
+    },
+    "custom/battery": {
+        "exec": "python3 -c 'import json, subprocess, os, glob; bats=glob.glob(\"/sys/class/power_supply/BAT*\"); bat=bats[0] if bats else \"\"; cap=open(f\"{bat}/capacity\").read().strip() if bat and os.path.exists(f\"{bat}/capacity\") else \"?\"; stat=open(f\"{bat}/status\").read().strip() if bat and os.path.exists(f\"{bat}/status\") else \"Discharging\"; time_str=\"Unknown\"; \nif bat:\n if stat == \"Full\":\n  time_str = \"Full\"\n else:\n  tf=f\"{bat}/time_to_empty\" if stat!=\"Charging\" else f\"{bat}/time_to_full\"\n  if os.path.exists(tf):\n   try:\n    secs=int(open(tf).read().strip())\n    if secs>0: time_str=f\"{secs//3600}h {(secs%3600)//60:02d}m\"\n   except: pass\n  if time_str == \"Unknown\":\n   try:\n    now_f=f\"{bat}/energy_now\" if os.path.exists(f\"{bat}/energy_now\") else f\"{bat}/charge_now\"\n    rate_f=f\"{bat}/power_now\" if os.path.exists(f\"{bat}/power_now\") else f\"{bat}/current_now\"\n    full_f=f\"{bat}/energy_full\" if os.path.exists(f\"{bat}/energy_full\") else f\"{bat}/charge_full\"\n    now=float(open(now_f).read().strip()); rate=float(open(rate_f).read().strip())\n    if rate > 0:\n     h = now / rate if stat != \"Charging\" else (float(open(full_f).read().strip()) - now) / rate\n     if h > 0: time_str=f\"{int(h)}h {int((h%1)*60):02d}m\"\n   except: pass\n\ntry: prof=subprocess.check_output(\"powerprofilesctl get\", shell=True).decode().strip()\nexcept: prof=\"unknown\"\n\nicons=[\"󰂎\",\"󰁺\",\"󰁻\",\"󰁼\",\"󰁽\",\"󰁾\",\"󰁿\",\"󰂀\",\"󰂁\",\"󰂂\",\"󰁹\"]\ntry: idx=min(int(cap)//10, 10)\nexcept: idx=5\nicon=\"󰂄\" if stat==\"Charging\" else icons[idx]\nprint(json.dumps({\"text\": f\"{icon} {cap}%\", \"tooltip\": f\"Battery : {cap}%\\nLeft : {time_str}\\nStatus : {stat}\\nProfile : {prof}\"}))'",
+        "return-type": "json",
+        "interval": 3,
+        "on-click": "python3 -c 'import subprocess; p=subprocess.check_output(\"powerprofilesctl get\", shell=True).decode().strip(); n={\"performance\":\"balanced\",\"balanced\":\"power-saver\",\"power-saver\":\"performance\"}.get(p,\"balanced\"); subprocess.run([\"powerprofilesctl\",\"set\",n])'"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 0%",
+        "max-volume": 100,
+        "format-icons": {
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "on-click": "pavucontrol",
+        "on-click-middle": "playerctl play-pause"
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d/%m/%Y}",
+        "tooltip": true,
+        "tooltip-format": "<big>{:%A %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 1
+    }
+}

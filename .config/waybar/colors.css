@@ -1,0 +1,27 @@
+/* Data palette requested for this Waybar configuration. */
+@define-color dt-black #0f0f0f;
+@define-color dt-gray-0 #141514;
+@define-color dt-gray-1 #1e1f1e;
+@define-color dt-gray-2 #272a28;
+@define-color dt-gray-3 #3b403c;
+@define-color dt-gray-4 #585f5b;
+@define-color dt-gray-5 #6c756f;
+@define-color dt-gray-6 #888e7b;
+@define-color dt-gray-7 #9a9c8b;
+@define-color dt-gray-8 #b6b69a;
+@define-color dt-gray-9 #d9cdb5;
+@define-color dt-gray-10 #e3d6c9;
+@define-color dt-white #f4decd;
+@define-color dt-red-6 #f16e65;
+@define-color dt-red-7 #ef968f;
+@define-color dt-orange-6 #ef934d;
+@define-color dt-orange-7 #f4b585;
+@define-color dt-yellow #efbf71;
+@define-color dt-green-6 #7ec97e;
+@define-color dt-green-7 #a4daa4;
+@define-color dt-cyan-6 #7ec9a3;
+@define-color dt-cyan-7 #abd4bf;
+@define-color dt-blue-6 #71b4d6;
+@define-color dt-blue-8 #b0d4e8;
+@define-color dt-magenta-7 #e28dc6;
+@define-color dt-magenta-8 #ebadd6;

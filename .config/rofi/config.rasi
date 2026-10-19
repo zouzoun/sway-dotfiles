@@ -1,0 +1,6 @@
+configuration {
+    font: "Pragmasevka Nerd Font 11";
+    show-icons: false;
+}
+
+@theme "~/.config/rofi/fsel-theme.rasi"

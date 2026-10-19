@@ -1,0 +1,23 @@
+font=Pragmasevka Nerd Font 11
+
+background-color=#141514
+text-color=#f4decd
+border-color=#3b403c
+border-size=1
+border-radius=0
+padding=10
+margin=10
+default-timeout=5000
+
+[urgency=low]
+border-color=#3b403c
+text-color=#f4decd
+
+[urgency=normal]
+border-color=#3b403c
+text-color=#f4decd
+
+[urgency=high]
+border-color=#f16e65
+text-color=#f4decd
+default-timeout=0

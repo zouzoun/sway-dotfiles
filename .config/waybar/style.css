@@ -1,0 +1,138 @@
+@import "colors.css";
+
+* {
+    font-family: "Pragmasevka Nerd Font";
+    font-weight: 400;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: @dt-black;
+    color: @dt-white;
+    min-height: 21px;
+}
+
+#workspaces {
+    margin: 0;
+    padding: 0;
+}
+
+#workspaces button {
+    min-width: 22px;
+    min-height: 21px;
+    padding: 0 6px;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: @dt-gray-2;
+    color: @dt-white;
+    box-shadow: none;
+}
+
+#workspaces button.focused {
+    background: @dt-orange-6;
+    color: @dt-black;
+}
+
+#workspaces button.urgent {
+    background: @dt-red-6;
+    color: @dt-black;
+}
+
+#workspaces button:hover {
+    background: @dt-gray-3;
+    color: @dt-white;
+}
+
+#workspaces button.focused:hover {
+    background: @dt-orange-6;
+    color: @dt-black;
+}
+
+#tray {
+    min-height: 21px;
+    padding: 0 2px;
+    margin: 0;
+    background: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#group-resources {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#custom-resource-icon {
+    min-height: 21px;
+    padding: 0 7px;
+    color: @dt-white;
+    background: transparent;
+}
+
+#custom-resource-icon:hover {
+    background: @dt-gray-2;
+    color: @dt-orange-7;
+}
+
+.resource-child {
+    background: transparent;
+}
+
+#cpu,
+#memory,
+#disk,
+#custom-battery {
+    min-height: 21px;
+    padding: 0 7px;
+    color: @dt-white;
+    background: transparent;
+}
+
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#custom-battery:hover {
+    background: @dt-gray-2;
+    color: @dt-orange-7;
+}
+
+/* Module Volume */
+#pulseaudio {
+    min-height: 21px;
+    padding: 0 7px;
+    margin: 0;
+    background: transparent;
+    color: @dt-white;
+}
+
+#pulseaudio:hover {
+    background: @dt-gray-2;
+    color: @dt-orange-7;
+}
+
+/* Horloge */
+#clock {
+    min-height: 21px;
+    padding: 0 7px 0 5px;
+    margin: 0;
+    background: transparent;
+    color: @dt-white;
+    font-family: "Pragmasevka Nerd Font";
+    font-weight: 400;
+    font-size: 13px;
+}
+
+#clock:hover {
+    background: @dt-gray-2;
+    color: @dt-orange-7;
+}

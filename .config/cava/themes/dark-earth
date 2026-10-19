@@ -1,0 +1,31 @@
+
+[general]
+framerate = 60
+autosens = 1
+bars = 0
+
+[input]
+method = pulse
+source = auto
+
+[output]
+method = noncurses
+channels = stereo
+
+[color]
+background = '#0f0f0f'
+foreground = '#f4decd'
+gradient = 1
+gradient_color_1 = '#7ec97e'
+gradient_color_2 = '#a4daa4'
+gradient_color_3 = '#7ec9a3'
+gradient_color_4 = '#71b4d6'
+gradient_color_5 = '#b0d4e8'
+gradient_color_6 = '#efbf71'
+gradient_color_7 = '#ef934d'
+gradient_color_8 = '#f16e65'
+
+[smoothing]
+monstercat = 1
+waves = 0
+noise_reduction = 77

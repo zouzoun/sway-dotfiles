@@ -1,0 +1,72 @@
+# DT Minimal — GRUB theme
+# Palette based on the user's fsel configuration.
+# Designed to remain readable on common GRUB graphical resolutions.
+
+title-text: "Gentoo GNU/Linux"
+title-font: "Unifont Regular 16"
+title-color: "#f4decd"
+
+desktop-color: "#0f0f0f"
+
+# Keep GRUB's rescue/command-line terminal readable.
+terminal-font: "Unifont Regular 16"
+terminal-left: "5%"
+terminal-top: "5%"
+terminal-width: "90%"
+terminal-height: "90%"
+terminal-border: "1"
+
++ boot_menu {
+    top = 25%
+    left = 15%
+    width = 70%
+    height = 48%
+
+    item_font = "Unifont Regular 16"
+    selected_item_font = "Unifont Regular 16"
+    item_color = "#d9cdb5"
+    selected_item_color = "#ef934d"
+
+    item_height = 38
+    item_padding = 8
+    item_spacing = 8
+    icon_width = 24
+    icon_height = 24
+    item_icon_space = 10
+    scrollbar = false
+}
+
++ progress_bar {
+    id = "__timeout__"
+    left = 25%
+    top = 82%
+    width = 50%
+    height = 8
+    fg_color = "#ef934d"
+    bg_color = "#272a28"
+    border_color = "#3b403c"
+    show_text = false
+}
+
++ label {
+    top = 88%
+    left = 10%
+    width = 80%
+    height = 24
+    text = "↑ ↓  Select    Enter  Boot    E  Edit    C  Console"
+    font = "Unifont Regular 12"
+    color = "#888e7b"
+    align = "center"
+}
+
++ label {
+    top = 94%
+    left = 5%
+    width = 90%
+    height = 18
+    id = "__timeout__"
+    text = "Booting in %d seconds"
+    font = "Unifont Regular 12"
+    color = "#6c756f"
+    align = "center"
+}
