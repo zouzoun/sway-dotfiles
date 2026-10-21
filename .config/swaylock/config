@@ -1,33 +1,39 @@
+
 image=~/.config/swaylock/bg.png
 scaling=fill
+
+clock
+timestr=%H:%M
+datestr=%A %d %B
+font=Pragmasevka Nerd Font
+font-size=32
 
 indicator=true
 indicator-radius=100
 indicator-thickness=10
 
-# Anneau : gris au repos, puis une couleur d'étoile par état
 ring-color=3b403c
-ring-clear-color=f4c15a
-ring-ver-color=6ec3f0
+ring-clear-color=ef934d
+ring-ver-color=7ec9a3
 ring-wrong-color=f16e65
 
 inside-color=141514
-inside-clear-color=141514
-inside-ver-color=141514
-inside-wrong-color=141514
+inside-clear-color=1e1f1e
+inside-ver-color=1e1f1e
+inside-wrong-color=1e1f1e
 
 line-color=00000000
 line-clear-color=00000000
 line-ver-color=00000000
 line-wrong-color=00000000
 
-text-color=f4decd
-text-clear-color=f4decd
-text-ver-color=f4decd
-text-wrong-color=f4decd
+text-color=ffffff
+text-clear-color=ffffff
+text-ver-color=ffffff
+text-wrong-color=ffffff
 
-key-hl-color=4ade80
+key-hl-color=ef934d
 bs-hl-color=f16e65
-caps-lock-key-hl-color=f4934d
+caps-lock-key-hl-color=efbf71
 
 separator-color=00000000
